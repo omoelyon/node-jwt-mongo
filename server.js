@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const dbConfig = require("./config/db.config");
 
 const app = express();
 
@@ -20,8 +21,8 @@ const db = require("./models");
 const Role = db.role;
 
 db.mongoose
-//   .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
-.connect(`mongodb://localhost:27017/bexkoder_db`, {
+  .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
+// .connect(`mongodb://localhost:27017/bexkoder_db`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
@@ -72,7 +73,7 @@ db.mongoose
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+  res.json({ message: "Welcome to adeola node sample application." });
 });
 
 // routes
